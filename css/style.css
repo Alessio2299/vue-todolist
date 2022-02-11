@@ -47,3 +47,6 @@ header span{
   display: flex;
   justify-content: space-between;
 }
+.done span{
+  text-decoration: line-through;
+}

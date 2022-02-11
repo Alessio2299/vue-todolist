@@ -16,14 +16,14 @@
       </header>
       <main>
         <div class="containerInput">
-          <input type="text" placeholder="Inserisci qui le cose da fare..">
-          <button >Aggiungi</button>
+          <input @keyup.enter="addToDo" v-model="toDo.whatToDo" type="text" placeholder="Inserisci qui le cose da fare..">
+          <button @click="addToDo">Aggiungi</button>
         </div>
         <div class="content-text">
           <ul>
-            <li>
-              <span></span>
-              <i class="fas fa-times"></i>
+            <li @click="doneOrNot" :class="toDo.done == 'true' ? 'done' :''" v-for="(item, index) in toDoList">
+              <span>{{item.whatToDo}}</span>
+              <i @click="removeToDo(index)" id="close" class="fas fa-times"></i>
             </li>
           </ul>
         </div>

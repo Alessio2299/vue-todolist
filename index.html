@@ -16,14 +16,27 @@
       </header>
       <main>
         <div class="containerInput">
-          <input @keyup.enter="addToDo" v-model="toDo.whatToDo" type="text" placeholder="Inserisci qui le cose da fare..">
+          <input id="toDo" @keyup.enter="addToDo" v-model="toDo.whatToDo" type="text" placeholder="Inserisci qui la cosa da fare..">
+          <!-- <input id="category" @keyup.enter="addToDo" type="text" v-model="toDo.category" placeholder="Inserici la categoria.."> -->
+          <select v-model="toDo.category" name="category" id="category">
+            <option value="family">Family</option>
+            <option value="kitchen">Kitchen</option>
+            <option value="fitness">Fitness</option>
+            <option value="hobby">Hobby</option>
+          </select>
           <button @click="addToDo">Aggiungi</button>
         </div>
         <div class="content-text">
           <ul>
-            <li @click="doneOrNot" :class="toDo.done == 'true' ? 'done' :''" v-for="(item, index) in toDoList">
-              <span>{{item.whatToDo}}</span>
-              <i @click="removeToDo(index)" id="close" class="fas fa-times"></i>
+            <div class="nothing" v-if="toDoList.length == 0">
+              Non è presente alcuna azione.
+            </div>
+            <li v-for="(item, index) in toDoList">
+              <span @click="doneOrNot(index)" :class="item.done == 'true' ? 'done' :''">{{item.whatToDo}}</span>
+              <div>
+                <span class="target" :class="item.category">{{item.category}}</span>
+                <i @click="removeToDo(index)" id="close" class="fas fa-times"></i>
+              </div>
             </li>
           </ul>
         </div>

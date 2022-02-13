@@ -23,14 +23,18 @@ header span{
   height: 35px;
   padding: 0 10px;
 }
-.containerInput input{
+.containerInput #toDo{
   width: 300px;
-  margin: 0 20px;
+}
+.containerInput #category{
+  width: 150px;
+  margin: 0 20px 0 0;
+  height: 34px;
 }
 .content-text{
   width: 50%;
   margin: auto;
-  background-color: gainsboro;
+  background-color: rgb(207, 207, 207);
   border-radius: 10px;
   padding: 5px 0;
 }
@@ -40,13 +44,38 @@ header span{
 .content-text li{
   line-height: 40px;
   padding: 0 20px;
-  background-color: gold;
   border-radius: 10px;
   margin: 10px;
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
-.done span{
+.done{
   text-decoration: line-through;
+}
+ul .nothing{
+  padding: 20px;
+  text-transform: uppercase;
+}
+.content-text li:hover{
+  background-color: rgb(201, 201, 201);
+}
+.content-text .target{
+  padding: 8px;
+  border-radius: 10px;
+  margin-right: 10px;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+.kitchen{
+  background-color: red;
+}
+.hobby{
+  background-color: rgb(122, 18, 122);
+}
+.fitness{
+  background-color: green;
+}
+.family{
+  background-color: yellow;
 }

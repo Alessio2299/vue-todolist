@@ -4,25 +4,24 @@ var app = new Vue({
   data: {
     toDo: {
       whatToDo: "",
-      done: "false"
+      done: "false",
+      category: ""
     },
     toDoList: [],
   },
   methods: {
     addToDo(){
       this.toDoList.push(this.toDo);
-      this.toDo = {whatToDo: "", done: "false"};
+      this.toDo = {whatToDo: "", done: "false", category: ""};
     },
     removeToDo(indice){ 
       this.toDoList.splice(indice,1);
     },
-    doneOrNot(){
-      if(this.toDo.done == "false"){
-        this.toDo.done = "true";
-        console.log(this.toDo.done);
+    doneOrNot(indice){
+      if(this.toDoList[indice].done == "false"){
+        this.toDoList[indice].done = "true";
       } else{
-        this.toDo.done = "false";
-        console.log(this.toDo.done);
+        this.toDoList[indice].done = "false";
       }
     }
   }
